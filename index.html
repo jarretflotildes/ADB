@@ -13,23 +13,25 @@
   </head>
 
   <body>
-        <nav class="navbar d-flex fixed-top navbar-dark bg-dark flex-row">
-            <a class="navbar-brand" href="#">Profile</a>
-            <a class="navbar-brand" href="index.html">ADB</a>
-            <div class="navbar-nav d-flex flex-row">
-                <select class="form-select" id="search_filter">
-                    <option selected disabled>Filter...</option>
-                    <option value="1">ALL</option>
+    <nav class="navbar d-flex fixed-top navbar-dark bg-dark flex-row">
+        <a class="navbar-brand" href="#">Profile</a>
+        <a class="navbar-brand" href="#">Submit Media</a>
+        <a class="navbar-brand" href="index.html">ADB</a>
+        <div class="navbar-nav d-flex flex-row">
+            <select class="form-select" id="search_filter">
+                    <option disabled>Filter...</option>
+                    <option selected value="1">ALL</option>
                     <option value="2">BOOKS</option>
                     <option value="3">MOVIES</option>
                     <option value="4">TV SHOWS</option>
                     <option value="5">VIDEO GAMES</option>
                 </select>
+                <script src="JavaScript/search.js"></script>
                 <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
                 <button class="btn btn-outline-success my-2 my-sm-0 text-white" type="submit" id="search_button">Search</button>
-                <script src="JavaScript/search.js"></script>
             </div>
         </nav>
+        <div id="navbar-container"></div>
         <div class="container pt-5 mt-5">
             <h1>Bootstrap Page</h1>
             <p>Hello World.</p>

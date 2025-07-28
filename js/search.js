@@ -9,6 +9,6 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 function searchGetSelectedValue() {
-    const selectElement = document.getElementById('mySelect');
+    const selectElement = document.getElementById('search_filter');
     return selectElement.value;
 }
