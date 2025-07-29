@@ -1,22 +1,42 @@
-import React from 'react';
-import Navbar from "@/app/(Components)/Navbar"
+"use client";
 
-const Dashboard_wrapper = ({children }: { children: React.ReactNode}) => {
-    return (
-        <div>
-            <div className="flex flex-col px-4 py-2">
-                <Navbar/>
-            </div>
+import React, { useEffect } from "react";
+import Navbar from "@/app/(components)/Navbar";
+import Sidebar from "@/app/(components)/Sidebar";
+import StoreProvider, { useAppSelector } from "./redux";
 
-            <div className='light flex bg-gray-50 text-gray-900 w-full min-h-screen'>
-                <main className='flex flex-col w-full h-full py-7 px-9 bg-gray-50 md:pl-24'>
-                   {children}
-                </main>
-            </div>
+const DashboardLayout = ({ children }: { children: React.ReactNode }) => {
+  const isSidebarCollapsed = useAppSelector(
+    (state) => state.global.isSidebarCollapsed
+  );
 
-        </div>
-        
-    )
-}
+  return (
+    <div>
+      <div className="flex flex-col px-4 py-2">
+        <Navbar/>
+      </div>
+      <div
+        className="flex bg-gray-50 text-gray-900 w-full min-h-screen"
+      >
+        <Sidebar />
+        <main
+          className={`flex flex-col w-full h-full py-7 px-9 bg-gray-50 ${
+            isSidebarCollapsed ? "md:pl-24" : "md:pl-72"
+          }`}
+          >
+            {children}
+        </main>
+      </div>
+    </div>
+  );
+};
 
-export default Dashboard_wrapper
+const DashboardWrapper = ({ children }: { children: React.ReactNode }) => {
+  return (
+    <StoreProvider>
+      <DashboardLayout>{children}</DashboardLayout>
+    </StoreProvider>
+  );
+};
+
+export default DashboardWrapper;
