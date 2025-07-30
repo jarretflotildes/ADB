@@ -1,9 +1,0 @@
-#search_filter {
-    width: auto;                   /* Allow width to adjust to content */
-    display: inline-block;         /* Shrink to fit content */
-}
-
-/* Ensure all options are centered when dropdown is open */
-#search_filter option {
-    text-align: center;
-}
